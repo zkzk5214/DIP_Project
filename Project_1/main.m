@@ -1,4 +1,4 @@
-%%%%%%%%%%%%% project1.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% main.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Module: Q1
 % Usage: Main MATLAB code file for interpolating images using nearest-neighbor method
 % Purpose: 
@@ -54,10 +54,6 @@
 % 2. 	Divide the pixels of the original image by 2n to change the gray-level quantization of the original image from 8 to (8-n) bits/pixel.
 %       Then Multiply n to Make the gray levels span the 8-bit range in the new image.
 % 
-
-
-%  Author: Jonathan Lausch, Qiong Li, Zekai Liu
-%  Date:9/13/2019
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Clear out all memory
@@ -139,6 +135,7 @@ end
 figure,imshow(uint8(f256_up));title('Q1-256');saveas(gcf,'q1-256.tif');
 figure,imshow(uint8(f128_up));title('Q1-128');saveas(gcf,'q1-128.tif');
 figure,imshow(uint8(f32_up));title('Q1-32');saveas(gcf,'q1-32.tif');
+
 %------Q2-----------------------------------------------------------------%
 %  Create an interpolated 512*512 image from 32*32 image of Q1 using
 %  bilinear interpolation
@@ -176,6 +173,7 @@ for x = 1:size(f512,1)
 end
 % show image
 figure,imshow(uint8(f512)),title('Q2-Bilinear Interpolation');saveas(gcf,'Q2-Bilinear Interpolation.tif');
+
 %------Q3-----------------------------------------------------------------%
 %  Change the gray-level quantization of the original 512*512 image by 
 %  reducing the number of bits per pixel from 8 to 7, 6, 5, 4, 3, 2 and 1 
