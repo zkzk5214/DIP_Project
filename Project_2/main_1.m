@@ -1,4 +1,4 @@
-%%%%%%%%%%%%%%%%%%% output_q1.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% main_1.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %PROJECT 2
 % Module: Q1
 % Usage: Main MATLAB code file for FIND THE BRIGHTEST REGION
@@ -16,8 +16,6 @@
 % 1.	input threshold
 % 2.	color label
 % 3.	select 3 regions by employing largest3reg Function
-%  Author: Jonathan Lausch, Qiong Li, Zekai Liu
-%  Date:9/26/2019
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clc;clear;close all;
@@ -59,4 +57,3 @@ figure,imshow(fRGB);title('fRGB');saveas(gcf,'Q1b_fRGB.tif');
 
 image=largest3reg(threshold);
 title('3 largest components');saveas(gcf,'Q1c_LargestReg.tif')
-
