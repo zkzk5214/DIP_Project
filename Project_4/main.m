@@ -15,7 +15,6 @@
 % The following functions are called:
 %      pdfandcdf.m   
 %      pdfandcdf_8BIN.m
-%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clc;clear all;close all;
