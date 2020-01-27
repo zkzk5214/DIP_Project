@@ -1,4 +1,4 @@
-%%%%%%%%%%%%% mainproj5question1.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% main_1.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
 %      MEDIAN FILTERING
 %       
@@ -12,9 +12,6 @@
 %
 % The following functions are called:
 %      HISTOGRAMS.m        
-%
-%  Author:      Jonathan Lausch, Qiong Li, Zekai Liu
-%  Date:        12/6/2019
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clc;clear all;close all;
@@ -72,5 +69,3 @@ subplot(2,2,4),histogram(fnew2);title('histogram-new2');
 hold off 
 saveas(gcf,'ori-new-f2','tif')
 close all
-
-
