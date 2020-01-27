@@ -1,4 +1,4 @@
-%%%%%%%%%%%%% mainproj3.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% main.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
 %      Sample items pertaining to Project #4
 %      on Histogram Modification 
@@ -16,8 +16,6 @@
 %      pdfandcdf.m   
 %      pdfandcdf_8BIN.m
 %
-%  Author:      Jonathan Lausch, Qiong Li, Zekai Liu
-%  Date:        11/6/2019
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clc;clear all;close all;
