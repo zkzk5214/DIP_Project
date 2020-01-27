@@ -1,4 +1,4 @@
-%%%%%%%%%%%%%%%%%%% output_q2.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% main_2.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %PROJECT 2
 % Module: Q2
 % Usage: Main MATLAB code file for LOGICAL (SET) OPERATIONS
@@ -17,8 +17,6 @@
 % 1.	input images
 % 2.	logical(set) operations of those images pixels by pixels
 % 3.	show the output image
-%  Author: Jonathan Lausch, Qiong Li, Zekai Liu
-%  Date:9/26/2019
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %  Clear out all memory
