@@ -1,4 +1,4 @@
-%%%%%%%%%%%%% mainproj5question2.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% main_2.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
 %      MORPHOLOGICAL IMAGE PROCESSING
 %       
@@ -15,9 +15,6 @@
 % The following functions are called:
 %      RECONSTRUCT.m   
 %      EDGE_DETECTION.m
-%
-%  Author:      Jonathan Lausch, Qiong Li, Zekai Liu
-%  Date:        12/6/2019
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clc;clear all;close all;
@@ -132,5 +129,3 @@ figure,imshow(ff,[]);
 %---------------------------(C)--------------------------------------------
 %  EDGE DETECTION
 fff = EDGE_DETECTION(ff);
-        
-
