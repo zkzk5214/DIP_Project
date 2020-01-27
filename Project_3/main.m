@@ -20,10 +20,6 @@
 %
 % The following functions are called:
 %      notch.m   
-%      
-%
-%  Author:      Jonathan Lausch, Qiong Li, Zekai Liu
-%  Date:        10/25/2019
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clear;      % Clear out all memory 
