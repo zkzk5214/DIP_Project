@@ -1,4 +1,4 @@
-%%%%%%%%%%%%% mainproj3.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% main.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
 %      Sample items pertaining to Project #3
 %      on DFT-based image filtering
