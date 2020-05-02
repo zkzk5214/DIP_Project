@@ -7,6 +7,7 @@ I=imread(A);
 
 %  Returens the number of rows and columns in M,N
 [M, N] = size(I);
+I3 = zeros(M,N);
 
 %  Logic operate 
 for x = 1:M
@@ -22,7 +23,6 @@ for x = 1:M
     end
 end
 
-%  Show the image
-figure,imshow(I3);
+% figure,imshow(I3);
 
 end
