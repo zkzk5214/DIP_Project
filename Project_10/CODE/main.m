@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%  Main Function P5  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
-%      Fractal Generation Using Iterated Function Systems 
+%      Fractal Generation Using Iterated Function Systems(IFS)
 %
 % Input Variables:
 %      XY       a random point w(x,y)

@@ -1,4 +1,3 @@
-function [hist] = ph(image_in)
 %%%%%%%%%%%%%  Function ph  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
 %     To get the histogramb pr(r) of image
@@ -17,6 +16,8 @@ function [hist] = ph(image_in)
 %  Author:      Zekai Liu, Wenrui Wang, Naichao Yin
 %  Date:        27/03/2017
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function [hist] = ph(image_in)
+
 hist = zeros(1,256); 
 
 for i=1:256
@@ -27,4 +28,5 @@ for i=1:256
 end
 
 figure,bar(hist);
+
 end

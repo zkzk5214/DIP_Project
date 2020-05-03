@@ -1,4 +1,3 @@
-function x=RandByP3()
 %%%%%%%%%%%%%  Function RandByP3  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
 %      Creat a set of probabilities apply for ALF
@@ -16,7 +15,9 @@ function x=RandByP3()
 %  Author:      Wenrui Wang, Naichao Yin, Zekai Liu
 %  Date:        04/24/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-y=rand(1);
+function [x] = RandByP3()
+
+y = rand(1);
 
 if y < 0.2
     x = 1;

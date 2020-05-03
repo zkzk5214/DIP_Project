@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%  Function gaussianSmooth%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
-%      to do the gaussianSmooth on a particular image
+%      Gaussian Smoothing on a particular image
 %
 % Input Variables:
 %      Image       MxN input 2D gray-scale image 
@@ -13,10 +13,10 @@
 %  Date:        04/08/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [ smooth ] = gaussianSmooth(Image,var)
-%UNTITLED7 Summary of this function goes here
-%   Detailed explanation goes here
+function [ Smooth ] = gaussianSmooth(Image,var)
+
     Kernel = circleGaussian(var);
-    smooth = convolve2D(Image,Kernel);
+    Smooth = convolve2D(Image,Kernel);
+    
 end
 

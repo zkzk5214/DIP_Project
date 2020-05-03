@@ -1,4 +1,3 @@
-function [image_out] = meanFilter(image_in, filter)
 %%%%%%%%%%%%%  Function MeanFilter  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  Purpose:  
 %     Mean Filtering  
@@ -23,11 +22,15 @@ function [image_out] = meanFilter(image_in, filter)
 %  Author:      Zekai Liu, Wenrui Wang, Naichao Yin
 %  Date:        27/03/2017
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function [image_out] = meanFilter(image_in, filter)
+
 [m, n] = size(image_in);
-[mf, ~] = size(filter);
-k = (mf - 1) / 2;
 image_out = zeros(m, n, 'uint8');
+
+[mf, ~] = size(filter);
+k = (mf - mod(mf,2)) / 2;
 image_temp = zeros(m+2*k, n+2*k, 'double');
+
 coeff = sum(filter(:)); % coeff = filter size
 
 % Periodic Padding
@@ -57,11 +60,11 @@ for i = 1 : k
     end
 end
 
-% Median Filter
+% Mean Filter
 for i = 1+k : m+k
     for j = 1+k : n+k
         mask = image_temp(i-k:i+k, j-k:j+k);
-        mask1 = double(filter') .* double(mask);
+        mask1 = double(filter') .* double(mask);    % Array multip
         mask2 = sum(mask1(:)) / coeff;
         image_out(i-k, j-k) = uint8(mask2);
     end

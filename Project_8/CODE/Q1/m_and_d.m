@@ -1,4 +1,3 @@
-function [mean,standard_deviation] = m_and_d(image_in)
 %%%%%%%%%%%%%  Function m_and_d  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  Purpose:  
 %       To get Mean and standard deviation of image  
@@ -24,49 +23,51 @@ function [mean,standard_deviation] = m_and_d(image_in)
 %  Author:      Zekai Liu, Wenrui Wang, Naichao Yin
 %  Date:        27/03/2017
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-count=0;
-f_target=zeros(256);
-
+function [Mean,Standard_deviation] = m_and_d(image_in)
+Count = 0;
+f_target = zeros(256);
 
 %  Mean
-sum=0;
-for x=1:180       
-    for y=1:256
+Sum = 0;
+for x = 1:180 % Target region       
+    for y = 1:256
         if image_in(x,y) > 194  % Threshold 194
-            f_target(x,y)=f_target(x,y)+image_in(x,y);
-            count = count+1;
+            f_target(x,y) = f_target(x,y) + image_in(x,y);
+            Count = Count+1;
         end
     end
 end
 
-for x=1:256
-    for y=1:256
-        % Summation all target pixels
-        sum=sum+im2double(f_target(x,y));           
+for x = 1:256
+    for y = 1:256
+        Sum = Sum + im2double(f_target(x,y)); % Summation all target pixels        
     end
 end
-mean=sum/count;
 
+Mean = Sum/Count;
 
 %  Standard_deviation
-sss=zeros(256);
-diff=zeros(256);
+DiffSquare=zeros(256);
+Diff=zeros(256);
+
 for x=1:256
     for y=1:256
         if f_target(x,y)~= 0
-            diff(x,y)=f_target(x,y)-mean;
-            sss(x,y)=diff(x,y)*diff(x,y);
+            Diff(x,y)=f_target(x,y)-Mean;
+            DiffSquare(x,y)=Diff(x,y)*Diff(x,y);
         end
     end
 end
 
-ssss=0;
+DiffSquareSummation=0;
+
 for x=1:256
     for y=1:256
-            ssss=ssss+sss(x,y);     
+            DiffSquareSummation=DiffSquareSummation+DiffSquare(x,y);     
     end
 end
-standard_deviation = sqrt(ssss/count);
+
+Standard_deviation = sqrt(DiffSquareSummation/Count);
 
 end
 

@@ -1,4 +1,3 @@
-function [image_out] = medianFilter(image_in, filter)
 %%%%%%%%%%%%%  Function medianFilter  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  Purpose:  
 %     Median Filtering  
@@ -23,6 +22,8 @@ function [image_out] = medianFilter(image_in, filter)
 %  Author:      Zekai Liu, Wenrui Wang, Naichao Yin
 %  Date:        27/03/2017
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function [image_out] = medianFilter(image_in, filter)
+
 [m, n] = size(image_in);
 [mf, ~] = size(filter);
 k = (mf - 1) / 2;

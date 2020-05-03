@@ -1,4 +1,3 @@
-function x=RandByP4()
 %%%%%%%%%%%%%  Function RandByP4  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
 %      Creat a set of probabilities apply for ALF
@@ -16,7 +15,9 @@ function x=RandByP4()
 %  Author:      Wenrui Wang, Naichao Yin, Zekai Liu
 %  Date:        04/24/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-y=rand(1);
+function [x] = RandByP4()
+
+y = rand(1);
 
 if y < 0.2
     x = 1;

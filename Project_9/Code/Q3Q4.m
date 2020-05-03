@@ -1,6 +1,6 @@
-%%%%%%%%%%%%% Main Function Q3Q4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% Main Function Q3Q4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
-%      1.Apply gabor filte to seprate different texture 
+%      Apply gabor filte to seprate different texture 
 %
 % Input Variables:
 %      img2       MxN input 2D gray-scale image to be downsampled
@@ -8,22 +8,22 @@
 %      M, N    rows (M) and columns (N) in f
 %      n       n times (original image:processed image)
 % Returned Results:
-%     img2Filt                result after applying gabor filter
-%     filtDisplay            result after applying displayGabor
-%     img2FiltSmooth          result after applying gaussianSmooth
-%     img_final_show          result after applying segment and edge
+%      img2Filt                result after applying gabor filter
+%      filtDisplay            result after applying displayGabor
+%      img2FiltSmooth          result after applying gaussianSmooth
+%      img_final_show          result after applying segment and edge
 % Processing Flow:
-%    By calling different functions to get different results
+%      By calling different functions to get different results
 %
 %  Restrictions/Notes:
-%      none  
+%      None  
 %
 %  Calling functions
-%     gaborFilter, displayGabor, segment, gaussianSmooth
+%      gaborFilter, displayGabor, segment, gaussianSmooth
 %
 %  Author:      Wenrui Wang, Naichao Yin, Zekai Liu
 %  Date:        04/08/2020
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 close all; clear;
 %% Question 3
 %Part 3: img = 'd9d77.gif', F = 0.063; Theta = 60 degrees; sigma = 36
@@ -69,7 +69,6 @@ img2Filt = gaborFilter(img2,0.6038,50,8);
 
 figure, mesh(img2Filt);
  
-
 filtDisplay = displayGabor(img2Filt);
 %Compute Gaussian Smoothing
 img2FiltSmooth = gaussianSmooth(img2Filt,40);

@@ -1,6 +1,6 @@
-%%%%%%%%%%%%%  Main Function p4Main %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%  Main Function p4Main %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
-%      1.Apply gabor filte to seprate different texture 
+%      Apply gabor filte to seprate different texture 
 %
 % Input Variables:
 %      img2       MxN input 2D gray-scale image to be downsampled
@@ -8,24 +8,24 @@
 %      M, N    rows (M) and columns (N) in f
 %      n       n times (original image:processed image)
 % Returned Results:
-%     img2Filt                result after applying gabor filter
-%     filtDisplay            result after applying displayGabor
-%     img2FiltSmooth          result after applying gaussianSmooth
-%     img_final_show          result after applying segment and edge
+%      img2Filt                result after applying gabor filter
+%      filtDisplay            result after applying displayGabor
+%      img2FiltSmooth          result after applying gaussianSmooth
+%      img_final_show          result after applying segment and edge
 % Processing Flow:
-%    By calling different functions to get different results
+%      By calling different functions to get different results
 %
 %  Restrictions/Notes:
-%      none  
+%      None  
 %
 %  Calling functions
-%     gaborFilter, displayGabor, segment, gaussianSmooth
+%      gaborFilter, displayGabor, segment, gaussianSmooth
 %
 %  Author:      Wenrui Wang, Naichao Yin, Zekai Liu
 %  Date:        04/08/2020
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 close all; clear;
+
 %% Question 1
 %Part 1: img = 'texture2.gif', F = 0.059; Theta = 135 degrees; sigma = 8
 img2 = imread('texture2.gif');
@@ -58,6 +58,7 @@ ed = edge(img_seg, 'canny', 0.5);
 img_final_show = img_final+ed;
 figure;imshow(img_final_show);
 imwrite(img_final_show,'final1.jpg');
+
 %% Question 2
 %Part 2: img = 'texture2.gif', F = 0.042; Theta = 0 degrees; sigma = 24
 img2 = imread('texture1.gif');
