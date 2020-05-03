@@ -1,3 +1,4 @@
+function H = lpfilter(type, M, N, DO)
 %  Gives an MxN lowpass filter function H(u,v) 
 %     of type gaussian or ideal
 %     parameter DO sets the passband width
@@ -6,8 +7,8 @@
 %     Digital Image Processing using MATLAB
 %     by Gonzalez, Woods, and Eddins
 %
-function H = lpfilter(type, M, N, DO);
 % lpfilter
+
 [U, V] = dftuv(M, N);
 
 D = sqrt(U.^2 + V.^2);
