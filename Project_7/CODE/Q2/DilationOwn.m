@@ -1,28 +1,30 @@
-%%%%%%%%%%%%%  Function DiationOwn %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%  Function DilationOwn %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
-%     to dilate the image as well as erosion
+%     Image dilation
 %
 % Input Variables:
 %      f       MxN input 2D gray-scale image
 %      kx,ky   rows (kx) and columns (ky) in kernel
 %      ix,iy   rows (ix) and columns (iy) in im
 %      i       x coordinate of a pixel
-%      j       y coordinate of a pixel   
+%      j       y coordinate of a pixel 
+%
 % Returned Results:
 %     Image after dilation or erosion
 %
 %  Restrictions/Notes:
 %      This function takes an 8-bit image as input.  
 %
-%  The following functions are called:
-%     DiationOwn
+%  The following functions are called:     
 %
 %  Author:      Wenrui Wang, Naichao Yin, Zekai Liu
 %  Date:        27/1/2020
-function imnew= DiationOwn(im,kernel)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function imnew = DilationOwn(im,kernel)
 [kx,ky]=size(kernel);
 sx=(kx-mod(kx,2))/2;
 sy=(ky-mod(ky,2))/2;
+
 [ix,iy]=size(im);
 imnew=im;
 
@@ -37,5 +39,7 @@ for i=sx+1:ix-sx
             imnew(i,j)=0;
         end
     end
+end
+
 end
    

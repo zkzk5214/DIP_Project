@@ -34,40 +34,41 @@
 %
 %  Author:      Wenrui Wang, Naichao Yin, Zekai Liu
 %  Date:        02/20/2020
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% pick up soild area of shadow1.gif and bounding box
 f3=imread('shadow1.gif');
 f3=f3(:,:,1);
-[flable,num]=bwlabel(f3,8);
+[flable,~]=bwlabel(f3,8);
 figure;imshow(flable);
 [M,N]=size(flable);
 f4=zeros(M);
 f5=zeros(M);
 f6=zeros(M);
 f7=zeros(M);
-for i=1:M;
-    for j=1:N;
-        if flable(i,j)==1;
+for i=1:M
+    for j=1:N
+        if flable(i,j)==1
             f4(i,j)=f3(i,j);       
         end
     end
 end
-for i=1:M;
-    for j=1:N;
-        if flable(i,j)==3;
+for i=1:M
+    for j=1:N
+        if flable(i,j)==3
             f5(i,j)=f3(i,j);
         end
     end
 end
-for i=1:M;
-    for j=1:N;
-        if flable(i,j)==6;
+for i=1:M
+    for j=1:N
+        if flable(i,j)==6
             f6(i,j)=f3(i,j);                  
         end
     end
 end
-for i=1:M;
-    for j=1:N;
-        if flable(i,j)==9;
+for i=1:M
+    for j=1:N
+        if flable(i,j)==9
             f7(i,j)=f3(i,j);                   
         end
     end
@@ -82,6 +83,7 @@ ef=f6(min(a6):max(a6),min(b6):max(b6));
 figure;imshow(ef);
 gf=f7(min(a7):max(a7),min(b7):max(b7));
 figure;imshow(gf);
+
 %% compute the f(r),U(r)and H of f4
 cfcf4=(f4~=0);
 cf_area4=sum(cfcf4(:));
@@ -98,10 +100,11 @@ end
 cfH4=0.0000;
 cfH4=double(cfH4);
 for i=0:14
-    if cff4(i+1)~=0;
+    if cff4(i+1)~=0
         cfH4=cfH4-(cff4(i+1)*log2(cff4(i+1)));
     end
 end
+
 %% compute the f(r),U(r)and H of f5
 cfcf5=(f5~=0);
 cf_area5=sum(cfcf5(:));
@@ -118,10 +121,11 @@ end
 cfH5=0.0000;
 cfH5=double(cfH5);
 for i=0:14
-    if cff5(i+1)~=0;
+    if cff5(i+1)~=0
         cfH5=cfH5-(cff5(i+1)*log2(cff5(i+1)));
     end
 end
+
 %% compute the f(r),U(r)and H of f6
 cfcf6=(f6~=0);
 cf_area6=sum(cfcf6(:));
@@ -138,10 +142,11 @@ end
 cfH6=0.0000;
 cfH6=double(cfH6);
 for i=0:14
-    if cff6(i+1)~=0;
+    if cff6(i+1)~=0
         cfH6=cfH6-(cff6(i+1)*log2(cff6(i+1)));
     end
 end
+
 %% compute the f(r),U(r)and H of f7
 cfcf7=(f7~=0);
 cf_area7=sum(cfcf7(:));
@@ -158,10 +163,11 @@ end
 cfH7=0.0000;
 cfH7=double(cfH7);
 for i=0:14
-    if cff7(i+1)~=0;
+    if cff7(i+1)~=0
         cfH7=cfH7-(cff7(i+1)*log2(cff7(i+1)));
     end
 end
+
 %% pick up soild area of shadow1rotated.gif and bounding box
 rf3=imread('shadow1rotated.gif');
 rf3=rf3(:,:,1);
@@ -172,30 +178,30 @@ rf4=zeros(M);
 rf5=zeros(M);
 rf6=zeros(M);
 rf7=zeros(M);
-for i=1:M;
-    for j=1:N;
+for i=1:M
+    for j=1:N
         if rflable(i,j)==2
             rf4(i,j)=rf3(i,j);                  
         end
     end
 end
 %f4=logical(f4);
-for i=1:M;
-    for j=1:N;
+for i=1:M
+    for j=1:N
         if rflable(i,j)==3
             rf5(i,j)=rf3(i,j);                   
         end
     end
 end
-for i=1:M;
-    for j=1:N;
+for i=1:M
+    for j=1:N
         if rflable(i,j)==6
             rf6(i,j)=rf3(i,j);                
         end
     end
 end
-for i=1:M;
-    for j=1:N;
+for i=1:M
+    for j=1:N
         if rflable(i,j)==8
             rf7(i,j)=rf3(i,j);                 
         end
@@ -211,6 +217,7 @@ ref=rf6(min(ra6):max(ra6),min(rb6):max(rb6));
 figure;imshow(ref);
 rgf=rf7(min(ra7):max(ra7),min(rb7):max(rb7));
 figure;imshow(rgf);
+
 %% compute f(r),U(r) and H of image rf4
 rcfcf4=(rf4~=0);
 rcf_area4=sum(rcfcf4(:));
@@ -227,10 +234,11 @@ end
 rcfH4=0.0000;
 rcfH4=double(rcfH4);
 for i=0:14
-    if rcff4(i+1)~=0;
+    if rcff4(i+1)~=0
         rcfH4=rcfH4-(rcff4(i+1)*log2(rcff4(i+1)));
     end
 end
+
 %% compute f(r),U(r) and H of image rf5
 rcfcf5=(f5~=0);
 rcf_area5=sum(rcfcf5(:));
@@ -247,10 +255,11 @@ end
 rcfH5=0.0000;
 rcfH5=double(rcfH5);
 for i=0:14
-    if rcff5(i+1)~=0;
+    if rcff5(i+1)~=0
         rcfH5=rcfH5-(rcff5(i+1)*log2(rcff5(i+1)));
     end
 end
+
 %% compute f(r),U(r) and H of image rf6
 rcfcf6=(f6~=0);
 rcf_area6=sum(rcfcf6(:));
@@ -267,10 +276,11 @@ end
 rcfH6=0.0000;
 rcfH6=double(rcfH6);
 for i=0:14
-    if rcff6(i+1)~=0;
+    if rcff6(i+1)~=0
         rcfH6=rcfH6-(rcff6(i+1)*log2(rcff6(i+1)));
     end
 end
+
 %% compute f(r),U(r) and H of image rf7
 rcfcf7=(f7~=0);
 rcf_area7=sum(rcfcf7(:));
@@ -287,10 +297,11 @@ end
 rcfH7=0.0000;
 rcfH7=double(rcfH7);
 for i=0:14
-    if rcff7(i+1)~=0;
+    if rcff7(i+1)~=0
         rcfH7=rcfH7-(rcff7(i+1)*log2(rcff7(i+1)));
     end
 end
+
 %% compute the distance of pattern recognization
 dp11=0.0000;
 dp11=double(dp11);
@@ -356,6 +367,7 @@ figure;subplot(1,2,1);imshow(fmatch{1,2});subplot(1,2,2);imshow(fmatch{2,fmatch2
 figure;subplot(1,2,1);imshow(fmatch{1,3});subplot(1,2,2);imshow(fmatch{2,fmatch3col});
 [fmatch4row,fmatch4col]=find(dp==min(dp(4,:)));
 figure;subplot(1,2,1);imshow(fmatch{1,4});subplot(1,2,2);imshow(fmatch{2,fmatch4col});
+
 %% Generate spectrum distance table of shadow1 and shadow1rotated
 nametable = {};
 for i=1:4
@@ -368,6 +380,7 @@ d2 = [dp21,dp22,dp23,dp24];
 d3 = [dp31,dp32,dp33,dp34];
 d4 = [dp41,dp42,dp43,dp44];
 distable = table(d1',d2',d3',d4','VariableNames',{'object1','object2','object3','object4',},'RowNames',nametable');
+
 %% Generate size distribution table of shadow1 
 nametable = {};
 for i=0:15
@@ -380,6 +393,7 @@ object2=cm5;
 object3=cm6;
 object4=cm7;
 sdTable_shadow1 = table(object1',object2',object3',object4','VariableNames',{'object1','object2','object3','object4',},'RowNames',nametable');
+
 %% Generate pectrum table of shadow1 
 nametable = {};
 for i=0:14
@@ -392,6 +406,7 @@ object2=roundn(cff5,-4);
 object3=roundn(cff6,-4);
 object4=roundn(cff7,-4);
 psTable_shadow1  = table(object1',object2',object3',object4','VariableNames',{'object1','object2','object3','object4',},'RowNames',nametable');
+
 %% Generate size distribution table of shadow1rotated 
 nametable = {};
 for i=0:15
@@ -404,6 +419,7 @@ object2=rcm5;
 object3=rcm6;
 object4=rcm7;
 sdTable_shadow1rotated = table(object1',object2',object3',object4','VariableNames',{'object1','object2','object3','object4',},'RowNames',nametable');
+
 %% Generate pectrum table of shadow1rotated 
 nametable = {};
 for i=0:14
@@ -416,5 +432,3 @@ object2=roundn(rcff5,-4);
 object3=roundn(rcff6,-4);
 object4=roundn(rcff7,-4);
 psTable_shadow1rotated = table(object1',object2',object3',object4','VariableNames',{'object1','object2','object3','object4',},'RowNames',nametable');
- 
-    

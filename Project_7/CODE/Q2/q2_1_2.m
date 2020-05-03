@@ -1,4 +1,4 @@
-%%%%%%%%%%%%%  Main function 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%  Main function 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
 %      1.Isolate distinct objects and find the minimum bounding rectange  
 %      2. Cpmpute the size distribution, pectrum,and complexity of each
@@ -34,6 +34,7 @@
 %
 %  Author:      Wenrui Wang, Naichao Yin, Zekai Liu
 %  Date:        02/20/2020
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% pick up 4 parts of match1 and bounding box
 f=imread('match1.gif');
 f=f(:,:,1);
@@ -48,7 +49,7 @@ for i= min(a) : M
 end       
 for j= min(b) : N
     if ismember(j,b)==0
-        b2=j
+        b2=j;
         break;
     end        
 end       
@@ -103,6 +104,7 @@ for i=0:14
         cfH=cfH-(cff(i+1)*log2(cff(i+1)));
     end
 end
+
 %% Compute f(r),U(r),and H of image df
 fdf=zeros(128);
 fdf(30:103,30:86)=df;
@@ -124,10 +126,11 @@ end
 dfH=0.0000;
 dfH=double(dfH);
 for i=0:14
-    if dff(i+1)~=0;
+    if dff(i+1)~=0
         dfH=dfH-(dff(i+1)*log2(dff(i+1)));
     end
 end
+
 %% Compute f(r),U(r),and H of image ef
 fef=zeros(128);
 fef(30:101,30:79)=ef;
@@ -149,10 +152,11 @@ end
 efH=0.0000;
 efH=double(efH);
 for i=0:14
-    if eff(i+1)~=0;
+    if eff(i+1)~=0
         efH=efH-(eff(i+1)*log2(eff(i+1)));
     end
 end
+
 %% Compute f(r),U(r),and H of image gf
 fgf=zeros(128);
 fgf(30:91,30:96)=gf;
@@ -174,10 +178,11 @@ end
 gfH=0.0000;
 gfH=double(gfH);
 for i=0:14
-    if gff(i+1)~=0;
+    if gff(i+1)~=0
         gfH=gfH-(gff(i+1)*log2(gff(i+1)));
     end
 end
+
 %% pick up 4 parts of match1 and bounding box
 f3=imread('match3.gif');
 f3=f3(:,:,1);
@@ -216,6 +221,7 @@ figure;imshow(ef3);
 [g1,g2]=find(g3);
 gf3=g3(min(g1):max(g1),min(g2):max(g2));
 figure;imshow(gf3);
+
 %% compute f(r),U(r) and H of image cf3
 fcf3=zeros(128);
 fcf3(30:98,30:77)=cf3;
@@ -237,10 +243,11 @@ end
 cfH3=0.0000;
 cfH3=double(cfH3);
 for i=1:14
-    if cff3(i+1)~=0;
+    if cff3(i+1)~=0
         cfH3=cfH3-(cff3(i+1)*log(cff3(i+1)));
     end
 end
+
 %% compute f(r),U(r) and H of image df3
 fdf3=zeros(128);
 fdf3(30:103,30:87)=df3;
@@ -262,10 +269,11 @@ end
 dfH3=0.0000;
 dfH3=double(dfH3);
 for i=0:14
-    if dff3(i+1)~=0;
+    if dff3(i+1)~=0
         dfH3=dfH3-(dff3(i+1)*log(dff3(i+1)));
     end
 end
+
 %% compute f(r),U(r) and H of image ef3
 fef3=zeros(128);
 fef3(30:99,30:75)=ef3;
@@ -291,6 +299,7 @@ for i=0:14
         efH3=efH3-(eff3(i+1)*log(eff3(i+1)));
     end
 end
+
 %% compute f(r),U(r) and H of image gf3
 fgf3=zeros(128);
 fgf3(30:112,30:78)=gf3;
@@ -312,10 +321,11 @@ end
 gfH3=0.0000;
 gfH3=double(gfH3);
 for i=0:14
-    if gff3(i+1)~=0;
+    if gff3(i+1)~=0
         gfH3=gfH3-(gff3(i+1)*log(gff3(i+1)));
     end
 end
+
 %% Compute the distance of pattern recognization
 dp11=0.0000;
 dp11=double(dp11);
@@ -381,6 +391,7 @@ figure;subplot(1,2,1);imshow(fmatch{1,2});subplot(1,2,2);imshow(fmatch{2,fmatch2
 figure;subplot(1,2,1);imshow(fmatch{1,3});subplot(1,2,2);imshow(fmatch{2,fmatch3col});
 [fmatch4row,fmatch4col]=find(dp==min(dp(4,:)));
 figure;subplot(1,2,1);imshow(fmatch{1,4});subplot(1,2,2);imshow(fmatch{2,fmatch4col});
+
 %% Generate size distribution table of match1 
 nametable = {};
 for i=0:15
@@ -445,7 +456,3 @@ d2 = roundn(d2,-4);
 d3 = roundn(d3,-4);
 d4 = roundn(d4,-4);
 distable = table(d1',d2',d3',d4','VariableNames',{'object1','object2','object3','object4',},'RowNames',nametable');
-
-
-
-

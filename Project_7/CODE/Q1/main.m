@@ -1,4 +1,4 @@
-%%%%%%%%%%%%% proj2q1.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% projectmain1.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
 %     (1)Create structuring elements Bi
 %     (2)Do Thinning opeartion between original image and Bi

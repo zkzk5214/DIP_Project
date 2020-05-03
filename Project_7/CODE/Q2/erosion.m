@@ -1,4 +1,4 @@
-%%%%%%%%%%%%%  Function erosion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%  Function erosion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
 %     apply reosion to image
 % Input Variables:
@@ -18,6 +18,7 @@
 %
 %  Author:      Wenrui Wang, Naichao Yin, Zekai Liu
 %  Date:        27/1/2020
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function imnew= erosion(im,kernel)
 [kx,ky]=size(kernel);
 sx=(kx-mod(kx,2))/2;
@@ -41,3 +42,4 @@ im=~im;
 imnew=~imnew;
 imnew=imnew&im;
 
+end
