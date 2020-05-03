@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%  Function compare_lma %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
-%     Computes two images 
+%     Zero the components that two images both exist
 %
 % Input Variables:
 %     temp2    mXn size of a 2-D input image 
@@ -21,15 +21,14 @@
 %  The following functions are called:
 %     None
 %
-%  Author:      Zekai Liu Wenrui Wang Naichao Yin
+%  Author:      Wenrui Wang, Naichao Yin, Zekai Liu
 %  Date:        28/01/2017
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 function [ temps ] = compare_lma( temp2,temp3 )
+
 [m,n]=size(temp2);
 temps = temp2;
 
-% Logical AND operation
 for i=1:m
     for j=1:n
         if temp2(i,j)&& temp3(i,j)

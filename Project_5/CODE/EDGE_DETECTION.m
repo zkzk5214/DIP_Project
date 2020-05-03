@@ -4,46 +4,36 @@ function [k] = EDGE_DETECTION(f)
 %  INVERT COMBINATION AND SUBTRACT FROM INPUT.
 %  WHERE f IS THE EXTRACTED LETTES IMAGE
 
-%  erode f
 [M, N] = size(f);   
 k0 = zeros(M, N);
 k1 = zeros(M, N);
 a = zeros(1, 3);
 
-%  x direction
+% X direction
     for x = 2 : (M - 1)
         for y = 1 : N
-
             for i = -1 : 1
                 a( i + 2 ) = f( x-i, y );  
-            end
-            
-            k0(x,y) = max(a);
-            
+            end            
+            k0(x,y) = max(a);   % Largest of f(x+1,y),f(x,y),f(x-1,y)           
         end
-    end
+    end   
+%figure, imshow(k0)
     
-    %figure, imshow( k0 )
-    
-%  y direction
+% Y direction
     for x = 1 : M
-        for y = 2 : (N-1)
-            
+        for y = 2 : (N-1)            
             for i = -1 : 1
                 a( i + 2 ) = f( x, y-i );  
-            end
-            
-            k1(x,y) = max(a);
-            
+            end            
+            k1(x,y) = max(a);   % Largest of f(x,y+1),f(x,y),f(x,y-1)      
         end
-    end 
+    end  
+%figure, imshow(k1)
     
-    %figure, imshow( k1 )
-    
-%  combine x & y directions into 1 image
-    k = k0 | k1;   
-    k = f | ( ~k );  
-    
-    figure, imshow( k );
+% Combine x & y directions into 1 image
+% Subtract from input 
+k = k0 | k1;   
+k = f | ( ~k );  
 
 end

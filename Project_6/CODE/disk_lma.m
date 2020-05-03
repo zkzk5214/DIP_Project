@@ -1,4 +1,4 @@
-%%%%%%%%%%%%%  Function disk_lma %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%  Function disk_lma %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
 %     Generates the structuring element A 
 %
@@ -23,27 +23,22 @@
 %
 %  Author:      Wenrui Wang, Naichao Yin, Zekai Liu
 %  Date:        27/01/2020
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [ A ] = disk_lma( r )
-s = 2*r;
-A = zeros(s+1);
+d = 2*r;
+A = ones(d+1);
 
 % Scan through horizontal and vertical pixels, if the radial distance from
 % the center is less than or eqaul the specified R0 value, then make the 
 % pixel to 1.
-for i=1:(s+1)
-    for j=1:(s+1)
-        x = i - r - 1;
-        y = j - r - 1;
-        R  = sqrt((x).^2 + (y).^2);
+for i=1:(d+1)
+    for j=1:(d+1)
+        R  = sqrt((i - r - 1).^2 + (j - r - 1).^2);
         if R<=r
-            A(i,j)=1;
+            A(i,j)=0;
         end
     end
 end
 
-% Reverse image
-A = ~A;
 end
 

@@ -1,4 +1,4 @@
-%%%%%%%%%%%%% mainproj5question2.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% proj5main2.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
 %      MORPHOLOGICAL IMAGE PROCESSING
 %       
@@ -19,19 +19,15 @@
 %  Author:      Jonathan Lausch, Qiong Li, Zekai Liu
 %  Date:        12/6/2019
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+clc;clear;close all;
 
-clc;clear all;close all;
-
-%----------------------------(A)-------------------------------------------
+%% ----------------------------(A)-----------------------------------------
 %  READ IMAGE
 %  EXTRACT THE ROW(M) AND COLUMN(N) OF IMAGE
 %  SET ZEROS FOR F3 F4 F5 F6
 f = imread('proj5.gif');          
 [M,N] = size(f);                  
-f2 = zeros(M,N);
-f3 = zeros(M,N);                  
-f4 = zeros(M,N);
-f5 = zeros(M,N);
+f2 = zeros(M,N); f3 = zeros(M,N); f4 = zeros(M,N); f5 = zeros(M,N);
 f6 = zeros(M,N);
 
 %  SET THRESHOLD(75) TO MAKE IMAGE BECOME BINARY-VALUED IMAGE, WHERE 
@@ -45,20 +41,17 @@ for x=1:M
         end
     end
 end
-%HISTOGRAMS(f);
-figure,imshow(f2,[]),title('BINARY');
+% HISTOGRAMS(f);
+% figure,imshow(f2,[]),title('BINARY');
 
-%---------------------------(B)--------------------------------------------
+%% ---------------------------(B)------------------------------------------
 %  DO OPENING(EROSION AND DILATION) FOR BINARY-VALUED IMAGE(f2) TO REMOVE
 %  "X" GET f4, MASK 3X3. 
 %  DO "AND" LOGICAL BETWEEN f4 AND f2 FOR REDUCE ALL CORRUPTIONS(f5)  
 
 for x=2:M-1                     
     for y=2:N-1                   
-        if  f2(x-1,y-1)==0 && f2(x,y-1)==0 && f2(x+1,y-1)==0 &&...
-            f2(x-1,y)==0 && f2(x,y)==0 && f2(x+1,y)==0 &&...
-            f2(x-1,y+1)==0 && f2(x,y+1)==0 && f2(x+1,y+1)==0
-                                             
+        if  f2(x-1:x+1,y-1:y+1)==0                                           
             f3(x,y) = 0;
         else
             f3(x,y) = 255;
@@ -66,6 +59,7 @@ for x=2:M-1
     end
 end
 %figure,imshow(f3,[]),title('OPENING-EROSION');
+
 for x=2:M-1                     
     for y=2:N-1                   
         if  f3(x-1,y-1)==0 || f3(x,y-1)==0 || f3(x+1,y-1)==0 ||...
@@ -79,6 +73,7 @@ for x=2:M-1
     end
 end
 %figure,imshow(f4,[]),title('OPENING-DILATION');
+
 for x=1:M
     for y=1:N 
        
@@ -101,19 +96,7 @@ end
 %  AND KEEP THE OTHER TALL CHARACTERS(D,P,I,l).
 for x=1:M-1                     
     for y=1:N                   
-        if f5(x,y)==0 && f5(x+1,y)==0 && f5(x+2,y)==0 && f5(x+3,y)==0 &&...
-                         f5(x+4,y)==0 && f5(x+5,y)==0 && f5(x+6,y)==0 &&f5(x+7,y)==0 &&...
-                         f5(x+8,y)==0 && f5(x+9,y)==0 && f5(x+10,y)==0 &&f5(x+11,y)==0 &&...
-                         f5(x+12,y)==0 && f5(x+13,y)==0 && f5(x+14,y)==0 &&f5(x+15,y)==0 &&...
-                         f5(x+16,y)==0 && f5(x+17,y)==0 && f5(x+18,y)==0 &&f5(x+19,y)==0 &&...
-                         f5(x+20,y)==0 && f5(x+21,y)==0 && f5(x+22,y)==0 &&...
-                         f5(x-1,y)==0 && f5(x-2,y)==0 && f5(x-3,y)==0 &&...
-                         f5(x-4,y)==0 && f5(x-5,y)==0 && f5(x-6,y)==0 &&f5(x-7,y)==0 &&...
-                         f5(x-8,y)==0 && f5(x-9,y)==0 && f5(x-10,y)==0 &&f5(x-11,y)==0 &&...
-                         f5(x-12,y)==0 && f5(x-13,y)==0 && f5(x-14,y)==0 &&f5(x-15,y)==0 &&...
-                         f5(x-16,y)==0 && f5(x-17,y)==0 && f5(x-18,y)==0 &&f5(x-19,y)==0 &&...
-                         f5(x-20,y)==0 && f5(x-21,y)==0 && f5(x-22,y)==0 &&...
-                         f5(x,y-1)==0 &&f5(x,y+1)==0 && f5(x,y+2)==0                         
+        if f5(x-22:x+22,y)==0 &&  f5(x,y-1:y+2)==0                                       
             f6(x,y) = 0;
         else
             f6(x,y) = 255;
@@ -129,8 +112,7 @@ for n=1:55
 end 
 figure,imshow(ff,[]);
 
-%---------------------------(C)--------------------------------------------
+%% ---------------------------(C)------------------------------------------
 %  EDGE DETECTION
 fff = EDGE_DETECTION(ff);
-        
-
+% figure, imshow(fff);

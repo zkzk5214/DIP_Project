@@ -1,4 +1,4 @@
-%%%%%%%%%%%%% mainproj5question1.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% proj5main1.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
 %      MEDIAN FILTERING
 %       
@@ -16,10 +16,9 @@
 %  Author:      Jonathan Lausch, Qiong Li, Zekai Liu
 %  Date:        12/6/2019
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+clc;clear;close all;
 
-clc;clear all;close all;
-
-%----------------------------(A)-------------------------------------------
+%% ----------------------------(A)-----------------------------------------
 %  APPLY A 3X3 MEDIAN FILTER TO IMAGE(proj5) 
 %  SHOW THE ORIGINAL IMAGE AND FILTERED IMAGE WITH HISTOGRAMS
 
@@ -37,25 +36,26 @@ hold off
 saveas(gcf,'ori-new-f1','tif')
 close all
 
-%enlarge f1
+% Enlarge f1
 mainax = axes;
 histogram(mainax, f1, 'BinLimits', [10 74]);
 ylim(mainax, [0 600]) % To make room for sub axes.
+
 subax = axes('Position',[0.2 0.7 0.2 0.2]);
 histogram(subax, f1);title('histogram-ENLARGEori');
 saveas(gcf,'histogramORI','tif');
 close all
 
-%enlarge fnew1
+% Enlarge fnew1
 mainax = axes;
 histogram(mainax, fnew1, 'BinLimits', [10 74]);
 ylim(mainax, [0 600]) % To make room for sub axes.
+
 subax = axes('Position',[0.2 0.7 0.2 0.2]);
 histogram(subax, fnew1);title('histogram-ENLARGEnew');
 saveas(gcf,'histogramnew','tif');
 
-
-%----------------------------(B)-------------------------------------------
+%% ----------------------------(B)-----------------------------------------
 %  APPLY A 3X3 MEDIAN FILTER TO IMAGE(wheelpepper) 
 %  SHOW THE ORIGINAL IMAGE AND FILTERED IMAGE WITH HISTOGRAMS
 
@@ -72,5 +72,3 @@ subplot(2,2,4),histogram(fnew2);title('histogram-new2');
 hold off 
 saveas(gcf,'ori-new-f2','tif')
 close all
-
-

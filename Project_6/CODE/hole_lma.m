@@ -1,4 +1,4 @@
-%%%%%%%%%%%%%  Function hole_lma %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%  Function hole_lma %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
 %     Generates the structuring element B(W-A from notes) 
 %
@@ -22,14 +22,14 @@
 %
 %  Author:      Wenrui Wang, Naichao Yin, Zekai Liu
 %  Date:        28/01/2020
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [ B ] = hole_lma( r )
 d = 2*r;
 B = zeros(d+1);
 
 % Scan through horizontal and vertical pixels, if the radial distance from
-% the center is less than or eqaul the specified R0 value, then make the 
-% pixel to 1.
+% the center(r+1,r+1) is less than or eqaul the specified R0 value, then  
+% make the pixel to 1.
 for i=1:(d+1)
     for j=1:(d+1)
         R  = sqrt((i-r-1).^2 + (j-r-1).^2);

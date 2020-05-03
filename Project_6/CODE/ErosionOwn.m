@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%  Function ErosionOwn %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
-%     apply erosion to image
+%     Image Erosion
 %
 % Input Variables:
 %      f       MxN input 2D gray-scale image
@@ -45,13 +45,15 @@ end
 % Start at good point
 for i=sx+1:ix-sx-1
     for j=sy+1:iy-sy-1
-        imblock=im(i-sx:i+sx,j-sy:j+sy);
-        andresult=kernel&imblock;
-        ar=sum(sum(andresult));
+        
+        imblock = im(i-sx:i+sx,j-sy:j+sy);
+        andresult = kernel&imblock;
+        ar = sum(sum(andresult));
+        
         if ar>0
-            imnew(i,j)=255;
+            imnew(i,j) = 255;
         else
-            imnew(i,j)=0;
+            imnew(i,j) = 0;
         end
     end
 end
@@ -60,10 +62,12 @@ end
 for i=1:ix
     for j=1:iy
         if imnew(i,j)==0
-           imnew(i,j)=255;
+           imnew(i,j) = 255;
         else
-           imnew(i,j)=0;
+           imnew(i,j) = 0;
         end
     end
+end
+
 end
 

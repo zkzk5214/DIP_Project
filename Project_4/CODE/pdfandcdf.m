@@ -7,7 +7,7 @@ function pdfandcdf(f)
 row=size(f,1);
 column=size(f,2);
 
-%  PDF
+% PDF
 pr_=zeros(1,256);
 pr=zeros(1,256);
 for x=1:row
@@ -18,19 +18,18 @@ for x=1:row
     end
 end
 
-%  CDF
+% CDF
+cr_=zeros(1,256);
 cr=zeros(1,256);
-a=zeros(1,256);
 for r = 1:256
     for j = 1:r
-        a(r)=a(r)+pr(j);
+        cr_(r)=cr_(r)+pr(j);
     end
-    cr(r)=cr(r)+a(j);
+    cr(r)=cr(r)+cr_(j);
 end
 
-%  Show the histogram of PDF and CDF
-figure;bar((0:1:255),pr);title('histogram');axis tight;
-%figure;bar(pr);axis tight;
-figure;bar((0:1:255),cr);title('cdf');axis tight;
+% Show the histogram of PDF and CDF
+figure;bar((0:1:255),pr);title('Histogram');axis tight;
+figure;bar((0:1:255),cr);title('CDF');axis tight;
 
 end

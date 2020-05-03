@@ -6,7 +6,7 @@ row=size(f,1);
 column=size(f,2);
 h=zeros(1,256);
 
-%  CALCULATE
+% CALCULATE
 for x=1:row
     for y=1:column
         
@@ -16,7 +16,7 @@ for x=1:row
     end
 end
 
-%  SHOW 
+% SHOW 
 figure;bar((0:1:255),h);title('Histogram');axis tight;
 
 end

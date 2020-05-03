@@ -45,8 +45,7 @@ end
 
 %  AND
 for x=1:M
-    for y=1:N 
-       
+    for y=1:N       
         if (j(x,y)==0)&&(f1(x,y)==0)
             k(x,y) = 0;
         elseif (j(x,y)==255)&&(f1(x,y)==0)
@@ -56,8 +55,7 @@ for x=1:M
         else
             k(x,y) = 255;
         end     
-    end
-    
+    end    
 end
 %figure,imshow(k,[]),title('RECONSTRUCT-LETTER');
 

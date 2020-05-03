@@ -1,16 +1,16 @@
-%%%%%%%%%%%%% mainproj3.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% projectmain.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
 %      Sample items pertaining to Project #4
 %      on Histogram Modification 
 %
 % Input Variables:
-%      f       Input 2D image (truck)
+%      f         Input 2D image (truck)
 %      
 % Returned Results:     
-%          r         Gamma
-%          s1/s2     Gamma corrected image   
-%          s         Contrast stretched image 
-%          he_f      Equalized image
+%      r         Gamma
+%      s1/s2     Gamma corrected image   
+%      s         Contrast stretched image 
+%      he_f      Equalized image
 %
 % The following functions are called:
 %      pdfandcdf.m   
@@ -19,8 +19,7 @@
 %  Author:      Jonathan Lausch, Qiong Li, Zekai Liu
 %  Date:        11/6/2019
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-clc;clear all;close all;
+clc;clear;close all;
 
 f = imread('truck.gif');
 f = f(:,:,1);
@@ -34,7 +33,7 @@ f = f(:,:,1);
 pdfandcdf(f);
 pdfandcdf_8BIN(f);
 
-%% Q2 Gamma=5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% -- Q2 Gamma=5 --
 % Gamma correction with gamma = 5 
 % Use equation s=T(r)=255(r/255)^gamma
 
@@ -42,6 +41,7 @@ r= 5;
 s1 = zeros(256);
 row=size(f,1);
 column=size(f,2);
+
 for x=1:row
     for y=1:column
         s1(x,y)=round(255*((double(f(x,y))/255)^r));
@@ -52,7 +52,7 @@ end
 imshow(s1,[]);title('gamma r=5');saveas(gcf,'Q2gamma5.tif');
 pdfandcdf(s1);
 
-%% Q2 Gamma=0.2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% -- Q2 Gamma=0.2 --
 % Gamma correction with gamma = 0.2
 % Use equation s=T(r)=255(r/255)^gamma
 
@@ -60,6 +60,7 @@ r= 0.2;
 s2 = zeros(256);
 row=size(f,1);
 column=size(f,2);
+
 for x=1:row
     for y=1:column
         s2(x,y)= round(255*((double(f(x,y))/255)^r));
@@ -70,19 +71,20 @@ end
 imshow(s2,[]);title('gamma r=0.2');saveas(gcf,'Q2gamma02.tif');
 pdfandcdf(s2);
 
-%% Q3 Contrast Stretching%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% --Q3 Contrast Stretching --
 %  Set all pixels with gray levels below 10% in the cdf to black.
 %  Set all pixels with gray levels above 90% in the cdf to white.
 %  Linearly stretch the range between the 10% and 90% gray levels to 
-%cover the range 0 to 255.
+%  cover the range 0 to 255.
 %  Use the formula to apply histogram-modification:
 %  s=T(r)=0,0<r<64; 255r/64-255,64<=r<128; 255,128<=r<255
 
-%  PDF
+% PDF
 pr_=zeros(1,256);
 pr=zeros(1,256);
 row=size(f,1);
 column=size(f,2);
+
 for x=1:row
     for y=1:column
         r = f(x,y);
@@ -91,9 +93,10 @@ for x=1:row
     end
 end
 
-%  CDF
+% CDF
 cr=zeros(1,256);
 a=zeros(1,256);
+
 for r = 1:256
     for j = 1:r
         a(r)=a(r)+pr(j);
@@ -103,15 +106,19 @@ end
 
 r=zeros(256);
 s=zeros(256);
+
 for x=1:row
     for y=1:column
+        % Stretch the range
         r(x,y) = f(x,y);
-        s(x,y)=round((255/((max(find(cr<0.9))-min(find(cr>0.1)))))*(r(x,y)-(min(find(cr>0.1))-1)));
+        s(x,y)=round((255/((find(cr<0.9, 1, 'last' )-find(cr>0.1, 1 ))))...
+            *(r(x,y)-(find(cr>0.1, 1 )-1))); 
         if s(x,y)<0
             s(x,y)=0;
         elseif s(x,y)>255
             s(x,y)=255;
         end
+        
     end
 end
 
